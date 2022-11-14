@@ -1,13 +1,6 @@
-package com.vefree.vefreeback.persistence.entity;
+package com.vefree.vefreeback.domain.dto;
 
-import javax.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDto {
     private Integer id;
     private String name;
     private String lastName;
@@ -15,24 +8,6 @@ public class User {
     private String email;
     private String phone;
 
-    @OneToMany(mappedBy = "userProvider")
-    private List<Service> servicesUProvider;
-
-    @OneToMany(mappedBy = "userBeneficiary")
-    private List<Service> servicesUBeneficiary;
-
-
-    public User() {
-    }
-
-    public User(Integer id, String name, String lastName, String document, String email, String phone) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.document = document;
-        this.email = email;
-        this.phone = phone;
-    }
 
     public Integer getId() {
         return id;

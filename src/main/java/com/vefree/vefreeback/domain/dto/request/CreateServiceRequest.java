@@ -1,16 +1,42 @@
 package com.vefree.vefreeback.domain.dto.request;
 
+import com.vefree.vefreeback.domain.dto.RouteDto;
+import com.vefree.vefreeback.domain.dto.StatusDto;
+import com.vefree.vefreeback.domain.dto.UserDto;
+import com.vefree.vefreeback.domain.dto.VehicleTypeDto;
+import com.vefree.vefreeback.persistence.entity.Route;
+import com.vefree.vefreeback.persistence.entity.Status;
+import com.vefree.vefreeback.persistence.entity.User;
+import com.vefree.vefreeback.persistence.entity.VehicleType;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 public class CreateServiceRequest {
     private String name;
     private String description;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date initialDate;
     private Integer vehicleTypeId;
     private Integer providerUserId;
     private Integer beneficiaryUserId;
     private Integer statusId;
     private Integer routeId;
+
+
+    private VehicleTypeDto vehicleType;
+
+    private UserDto userProvider;
+
+    private UserDto userBeneficiary;
+
+    private StatusDto status;
+
+    private RouteDto route;
+
 
     public CreateServiceRequest() {
     }

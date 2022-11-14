@@ -27,6 +27,11 @@ public interface ServiceMapper {
     List<ServiceDto> toServices(List<Service> services);
 
     @InheritInverseConfiguration
-    //@Mapping(target = "id", ignore = true)
+    /*@Mapping(target = "id", ignore = true)
+    @Mapping(target = "vehicleType", ignore = true)
+    @Mapping(target = "userProvider", ignore = true)
+    @Mapping(target = "userBeneficiary", ignore = true)
+    @Mapping(target = "status", ignore = true)
+    @Mapping(target = "route")*/
     Service toServiceEntity(CreateServiceRequest service);
 }

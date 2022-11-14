@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "service")
+@Table(name = "services")
 public class Service {
 
     @Id
@@ -13,6 +13,7 @@ public class Service {
     private String name;
     private String description;
     @Column(name = "initial_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date initialDate;
     @Column(name = "vehicle_type_id")
     private Integer vehicleTypeId;
@@ -26,23 +27,23 @@ public class Service {
     private Integer routeId;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_type_id", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private VehicleType vehicleType;
 
     @ManyToOne
-    @JoinColumn(name = "provider_user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private User userProvider;
 
     @ManyToOne
-    @JoinColumn(name = "beneficiary_user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private User userBeneficiary;
 
     @ManyToOne
-    @JoinColumn(name = "status_id", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "route_id", insertable = false, updatable = false)
+    @JoinColumn(name = "id", insertable = false, updatable = false)
     private Route route;
 
     public Service() {
@@ -130,5 +131,45 @@ public class Service {
 
     public void setRouteId(Integer routeId) {
         this.routeId = routeId;
+    }
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public User getUserProvider() {
+        return userProvider;
+    }
+
+    public void setUserProvider(User userProvider) {
+        this.userProvider = userProvider;
+    }
+
+    public User getUserBeneficiary() {
+        return userBeneficiary;
+    }
+
+    public void setUserBeneficiary(User userBeneficiary) {
+        this.userBeneficiary = userBeneficiary;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
     }
 }

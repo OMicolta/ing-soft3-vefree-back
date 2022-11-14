@@ -20,6 +20,7 @@ public class ServiceRepository implements IServiceRepository {
     @Override
     public ServiceDto save(CreateServiceRequest request) {
         Service service = mapper.toServiceEntity(request);
+        Service res = serviceCrudRepository.save(service);
         return mapper.toServiceDto(serviceCrudRepository.save(service));
     }
 }

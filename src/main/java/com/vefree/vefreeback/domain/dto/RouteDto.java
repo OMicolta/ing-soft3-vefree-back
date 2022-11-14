@@ -1,32 +1,11 @@
-package com.vefree.vefreeback.persistence.entity;
+package com.vefree.vefreeback.domain.dto;
 
-import javax.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "routes")
-public class Route {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class RouteDto {
     private Integer id;
     private String source;
     private String destination;
     private String details;
 
-    @OneToMany(mappedBy = "route")
-    private List<Service> services;
-
-
-    public Route() {
-    }
-
-    public Route(Integer id, String source, String destination, String details) {
-        this.id = id;
-        this.source = source;
-        this.destination = destination;
-        this.details = details;
-    }
 
     public Integer getId() {
         return id;

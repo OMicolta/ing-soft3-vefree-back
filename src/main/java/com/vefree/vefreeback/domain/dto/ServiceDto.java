@@ -1,5 +1,10 @@
 package com.vefree.vefreeback.domain.dto;
 
+import com.vefree.vefreeback.persistence.entity.Route;
+import com.vefree.vefreeback.persistence.entity.Status;
+import com.vefree.vefreeback.persistence.entity.User;
+import com.vefree.vefreeback.persistence.entity.VehicleType;
+
 import javax.persistence.Column;
 import java.util.Date;
 
@@ -13,6 +18,18 @@ public class ServiceDto {
     private Integer beneficiaryUserId;
     private Integer statusId;
     private Integer routeId;
+
+
+    private VehicleTypeDto vehicleType;
+
+    private UserDto userProvider;
+
+    private UserDto userBeneficiary;
+
+    private StatusDto status;
+
+    private RouteDto route;
+
 
     public ServiceDto() {
     }
