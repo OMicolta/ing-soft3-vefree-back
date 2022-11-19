@@ -1,7 +1,6 @@
 package com.vefree.vefreeback.persistence.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,13 +13,6 @@ public class User {
     private String document;
     private String email;
     private String phone;
-
-    @OneToMany(mappedBy = "userProvider")
-    private List<Service> servicesUProvider;
-
-    @OneToMany(mappedBy = "userBeneficiary")
-    private List<Service> servicesUBeneficiary;
-
 
     public User() {
     }

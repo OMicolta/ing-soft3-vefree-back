@@ -1,7 +1,6 @@
 package com.vefree.vefreeback.persistence.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "status")
@@ -12,10 +11,6 @@ public class Status {
     private Integer id;
     private String name;
     private String description;
-
-    @OneToMany(mappedBy = "status")
-    private List<Service> services;
-
 
     public Status() {
     }

@@ -1,11 +1,5 @@
 package com.vefree.vefreeback.domain.dto;
 
-import com.vefree.vefreeback.persistence.entity.Route;
-import com.vefree.vefreeback.persistence.entity.Status;
-import com.vefree.vefreeback.persistence.entity.User;
-import com.vefree.vefreeback.persistence.entity.VehicleType;
-
-import javax.persistence.Column;
 import java.util.Date;
 
 public class ServiceDto {
@@ -14,36 +8,28 @@ public class ServiceDto {
     private String description;
     private Date initialDate;
     private Integer vehicleTypeId;
-    private Integer providerUserId;
-    private Integer beneficiaryUserId;
-    private Integer statusId;
-    private Integer routeId;
+    private String providerUser;
+    private Character status;
+
+    private String source;
+
+    private String destination;
 
 
     private VehicleTypeDto vehicleType;
-
-    private UserDto userProvider;
-
-    private UserDto userBeneficiary;
-
-    private StatusDto status;
-
-    private RouteDto route;
 
 
     public ServiceDto() {
     }
 
-    public ServiceDto(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, Integer providerUserId, Integer beneficiaryUserId, Integer statusId, Integer routeId) {
+    public ServiceDto(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, Character status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
-        this.providerUserId = providerUserId;
-        this.beneficiaryUserId = beneficiaryUserId;
-        this.statusId = statusId;
-        this.routeId = routeId;
+        this.providerUser = providerUser;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -86,35 +72,35 @@ public class ServiceDto {
         this.vehicleTypeId = vehicleTypeId;
     }
 
-    public Integer getProviderUserId() {
-        return providerUserId;
+    public String getProviderUser() {
+        return providerUser;
     }
 
-    public void setProviderUserId(Integer providerUserId) {
-        this.providerUserId = providerUserId;
+    public void setProviderUser(String providerUser) {
+        this.providerUser = providerUser;
     }
 
-    public Integer getBeneficiaryUserId() {
-        return beneficiaryUserId;
+    public Character getStatus() {
+        return status;
     }
 
-    public void setBeneficiaryUserId(Integer beneficiaryUserId) {
-        this.beneficiaryUserId = beneficiaryUserId;
+    public void setStatus(Character status) {
+        this.status = status;
     }
 
-    public Integer getStatusId() {
-        return statusId;
+    public String getSource() {
+        return source;
     }
 
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public Integer getRouteId() {
-        return routeId;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setRouteId(Integer routeId) {
-        this.routeId = routeId;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }

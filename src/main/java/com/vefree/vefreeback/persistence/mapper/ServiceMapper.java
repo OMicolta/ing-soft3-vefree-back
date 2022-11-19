@@ -18,10 +18,10 @@ public interface ServiceMapper {
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "initialDate", target = "initialDate"),
             @Mapping(source = "vehicleTypeId", target = "vehicleTypeId"),
-            @Mapping(source = "providerUserId", target = "providerUserId"),
-            @Mapping(source = "beneficiaryUserId", target = "beneficiaryUserId"),
-            @Mapping(source = "statusId", target = "statusId"),
-            @Mapping(source = "routeId", target = "routeId")
+            @Mapping(source = "providerUser", target = "providerUser"),
+            @Mapping(source = "status", target = "status"),
+            @Mapping(source = "source", target = "source"),
+            @Mapping(source = "destination", target = "destination")
     })
     ServiceDto toServiceDto(Service service);
     List<ServiceDto> toServices(List<Service> services);

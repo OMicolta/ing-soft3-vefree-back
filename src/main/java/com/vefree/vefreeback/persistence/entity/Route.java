@@ -1,7 +1,6 @@
 package com.vefree.vefreeback.persistence.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "routes")
@@ -13,10 +12,6 @@ public class Route {
     private String source;
     private String destination;
     private String details;
-
-    @OneToMany(mappedBy = "route")
-    private List<Service> services;
-
 
     public Route() {
     }

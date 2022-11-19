@@ -17,48 +17,33 @@ public class Service {
     private Date initialDate;
     @Column(name = "vehicle_type_id")
     private Integer vehicleTypeId;
-    @Column(name = "provider_user_id")
-    private Integer providerUserId;
-    @Column(name = "beneficiary_user_id")
-    private Integer beneficiaryUserId;
-    @Column(name = "status_id")
-    private Integer statusId;
-    @Column(name = "route_id")
-    private Integer routeId;
+    @Column(name = "provider_user")
+    private String providerUser;
+    @Column(name = "status")
+    private Character status;
+
+    @Column(name = "source")
+    private String source;
+
+    @Column(name = "destination")
+    private String destination;
 
     @ManyToOne
     @JoinColumn(name = "id", insertable = false, updatable = false)
     private VehicleType vehicleType;
 
-    @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private User userProvider;
-
-    @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private User userBeneficiary;
-
-    @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private Status status;
-
-    @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private Route route;
 
     public Service() {
     }
 
-    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, Integer providerUserId, Integer beneficiaryUserId, Integer statusId, Integer routeId) {
+    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, Character status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
-        this.providerUserId = providerUserId;
-        this.beneficiaryUserId = beneficiaryUserId;
-        this.statusId = statusId;
-        this.routeId = routeId;
+        this.providerUser = providerUser;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -101,36 +86,12 @@ public class Service {
         this.vehicleTypeId = vehicleTypeId;
     }
 
-    public Integer getProviderUserId() {
-        return providerUserId;
+    public String getProviderUser() {
+        return providerUser;
     }
 
-    public void setProviderUserId(Integer providerUserId) {
-        this.providerUserId = providerUserId;
-    }
-
-    public Integer getBeneficiaryUserId() {
-        return beneficiaryUserId;
-    }
-
-    public void setBeneficiaryUserId(Integer beneficiaryUserId) {
-        this.beneficiaryUserId = beneficiaryUserId;
-    }
-
-    public Integer getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
-    }
-
-    public Integer getRouteId() {
-        return routeId;
-    }
-
-    public void setRouteId(Integer routeId) {
-        this.routeId = routeId;
+    public void setProviderUser(String providerUser) {
+        this.providerUser = providerUser;
     }
 
     public VehicleType getVehicleType() {
@@ -141,35 +102,27 @@ public class Service {
         this.vehicleType = vehicleType;
     }
 
-    public User getUserProvider() {
-        return userProvider;
-    }
-
-    public void setUserProvider(User userProvider) {
-        this.userProvider = userProvider;
-    }
-
-    public User getUserBeneficiary() {
-        return userBeneficiary;
-    }
-
-    public void setUserBeneficiary(User userBeneficiary) {
-        this.userBeneficiary = userBeneficiary;
-    }
-
-    public Status getStatus() {
+    public Character getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Character status) {
         this.status = status;
     }
 
-    public Route getRoute() {
-        return route;
+    public String getSource() {
+        return source;
     }
 
-    public void setRoute(Route route) {
-        this.route = route;
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }
