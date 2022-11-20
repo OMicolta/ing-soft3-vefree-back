@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/services")
+@CrossOrigin(origins = "*")
 public class ServiceController {
     @Autowired
     private ServiceService serviceService;
