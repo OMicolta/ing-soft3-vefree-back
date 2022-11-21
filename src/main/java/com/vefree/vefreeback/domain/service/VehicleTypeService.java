@@ -13,6 +13,10 @@ public class VehicleTypeService {
     @Autowired
     private VehicleTypeRepository vehicleTypeRepository;
 
+    /**
+     * Obtiene todos los servicios de la base de datos
+     * @return
+     */
     public List<VehicleTypeDto> getAll() {
         return vehicleTypeRepository.getAll();
     }

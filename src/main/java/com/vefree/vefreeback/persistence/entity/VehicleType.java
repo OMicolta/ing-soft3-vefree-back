@@ -3,6 +3,9 @@ package com.vefree.vefreeback.persistence.entity;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Entidad que representa a un tipo de vehiculo en la base de datos
+ */
 @Entity
 @Table(name = "vehicle_type")
 public class VehicleType {

@@ -15,10 +15,20 @@ public class ServiceService {
     @Autowired
     private ServiceRepository serviceRepository;
 
+
+    /**
+     * Guarda un servicio en base de datos
+     * @param service
+     * @return Servicio creado
+     */
     public ServiceDto save(CreateServiceRequest service) {
         return serviceRepository.save(service);
     }
 
+    /**
+     * Obtienes todos los servicios de la base de datos
+     * @return Lista de servicios
+     */
     public List<ServiceDto> getAll() {
         return serviceRepository.getAll();
     }

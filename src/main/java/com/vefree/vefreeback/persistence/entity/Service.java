@@ -3,6 +3,9 @@ package com.vefree.vefreeback.persistence.entity;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Entidad que representa a un servicio en la base de datos
+ */
 @Entity
 @Table(name = "services")
 public class Service {

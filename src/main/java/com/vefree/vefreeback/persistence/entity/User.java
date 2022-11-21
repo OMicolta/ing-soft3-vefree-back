@@ -2,6 +2,9 @@ package com.vefree.vefreeback.persistence.entity;
 
 import javax.persistence.*;
 
+/**
+ * Entidad que representa a un usuario en la base de datos
+ */
 @Entity
 @Table(name = "users")
 public class User {

@@ -26,6 +26,10 @@ public class VehicleTypeRepository implements IVehicleTypeRepository {
     private VehicleTypeMapper mapper;
 
 
+    /**
+     * Obtiene todos los servicios de la base de datos
+     * @return
+     */
     @Override
     public List<VehicleTypeDto> getAll() {
 

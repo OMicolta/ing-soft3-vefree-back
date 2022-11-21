@@ -21,12 +21,21 @@ public class ServiceRepository implements IServiceRepository {
     @Autowired
     private ServiceMapper mapper;
 
+    /**
+     * Guarda un servicio en base de datos
+     * @param request
+     * @return Servicio creado
+     */
     @Override
     public ServiceDto save(CreateServiceRequest request) {
         Service service = mapper.toServiceEntity(request);
         return mapper.toServiceDto(serviceCrudRepository.save(service));
     }
 
+    /**
+     * Obtienes todos los servicios de la base de datos
+     * @return Lista de servicios
+     */
     @Override
     public List<ServiceDto> getAll() {
         List<Service> services = (List<Service>) serviceCrudRepository.findAll();
