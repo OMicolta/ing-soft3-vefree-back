@@ -28,7 +28,7 @@ public class Service {
     @Column(name = "destination")
     private String destination;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id", insertable = false, updatable = false)
     private VehicleType vehicleType;
 
