@@ -1,7 +1,6 @@
 package com.vefree.vefreeback.web.controller;
 
 import com.vefree.vefreeback.domain.dto.ServiceDto;
-import com.vefree.vefreeback.domain.dto.VehicleTypeDto;
 import com.vefree.vefreeback.domain.dto.request.CreateServiceRequest;
 import com.vefree.vefreeback.domain.service.ServiceService;
 import io.swagger.annotations.ApiOperation;

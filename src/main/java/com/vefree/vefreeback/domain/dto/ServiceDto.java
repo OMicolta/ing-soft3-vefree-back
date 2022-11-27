@@ -16,8 +16,6 @@ public class ServiceDto {
     private String destination;
 
 
-    private VehicleTypeDto vehicleType;
-
 
     public ServiceDto() {
     }
