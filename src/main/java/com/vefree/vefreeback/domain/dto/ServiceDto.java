@@ -9,6 +9,8 @@ public class ServiceDto {
     private Date initialDate;
     private Integer vehicleTypeId;
     private String providerUser;
+
+    private String beneficiaryUser;
     private Character status;
 
     private String source;

@@ -22,6 +22,9 @@ public class Service {
     private Integer vehicleTypeId;
     @Column(name = "provider_user")
     private String providerUser;
+
+    @Column(name = "beneficiary_user")
+    private String beneficiaryUser;
     @Column(name = "status")
     private Character status;
 
@@ -39,13 +42,14 @@ public class Service {
     public Service() {
     }
 
-    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, Character status) {
+    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, String beneficiaryUser, Character status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
         this.providerUser = providerUser;
+        this.beneficiaryUser = beneficiaryUser;
         this.status = status;
     }
 
@@ -95,6 +99,14 @@ public class Service {
 
     public void setProviderUser(String providerUser) {
         this.providerUser = providerUser;
+    }
+
+    public String getBeneficiaryUser() {
+        return beneficiaryUser;
+    }
+
+    public void setBeneficiaryUser(String beneficiaryUser) {
+        this.beneficiaryUser = beneficiaryUser;
     }
 
     public VehicleType getVehicleType() {

@@ -2,6 +2,7 @@ package com.vefree.vefreeback.persistence;
 
 import com.vefree.vefreeback.domain.dto.ServiceDto;
 import com.vefree.vefreeback.domain.dto.request.CreateServiceRequest;
+import com.vefree.vefreeback.domain.dto.request.AcceptServiceRequest;
 import com.vefree.vefreeback.domain.repository.IServiceRepository;
 import com.vefree.vefreeback.persistence.crud.ServiceCrudRepository;
 import com.vefree.vefreeback.persistence.entity.Service;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ServiceRepository implements IServiceRepository {
@@ -38,5 +40,21 @@ public class ServiceRepository implements IServiceRepository {
     public List<ServiceDto> getAll() {
         List<Service> services = (List<Service>) serviceCrudRepository.findAll();
         return mapper.toServices(services);
+    }
+
+    /**
+     * Actualiza la información del usuario que acepta el servicio
+     * @param data
+     * @return
+     */
+    @Override
+    public Boolean acceptService(AcceptServiceRequest data) {
+        Optional<Service> service = serviceCrudRepository.findById(data.getServiceId());
+        if (service.get() != null) {
+            service.get().setBeneficiaryUser(data.getBeneficiaryUser());
+            service.get().setStatus(data.getStatus());
+        }
+        Service serviceUpdated = serviceCrudRepository.save(service.get());
+        return serviceUpdated != null;
     }
 }
