@@ -3,15 +3,17 @@ package com.vefree.vefreeback.domain.dto.request;
 
 public class AcceptServiceRequest {
     private Integer serviceId;
-    private String beneficiaryUser;
+    private String beneficiaryName;
+    private String beneficiaryId;
     private Character status;
 
     public AcceptServiceRequest() {
     }
 
-    public AcceptServiceRequest(Integer serviceId, String beneficiaryUser, Character status) {
+    public AcceptServiceRequest(Integer serviceId, String beneficiaryName, String beneficiaryId, Character status) {
         this.serviceId = serviceId;
-        this.beneficiaryUser = beneficiaryUser;
+        this.beneficiaryName = beneficiaryName;
+        this.beneficiaryId = beneficiaryId;
         this.status = status;
     }
 
@@ -23,12 +25,12 @@ public class AcceptServiceRequest {
         this.serviceId = serviceId;
     }
 
-    public String getBeneficiaryUser() {
-        return beneficiaryUser;
+    public String getBeneficiaryName() {
+        return beneficiaryName;
     }
 
-    public void setBeneficiaryUser(String beneficiaryUser) {
-        this.beneficiaryUser = beneficiaryUser;
+    public void setBeneficiaryName(String beneficiaryName) {
+        this.beneficiaryName = beneficiaryName;
     }
 
     public Character getStatus() {
@@ -37,5 +39,13 @@ public class AcceptServiceRequest {
 
     public void setStatus(Character status) {
         this.status = status;
+    }
+
+    public String getBeneficiaryId() {
+        return beneficiaryId;
+    }
+
+    public void setBeneficiaryId(String beneficiaryId) {
+        this.beneficiaryId = beneficiaryId;
     }
 }

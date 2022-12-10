@@ -9,7 +9,8 @@ public class CreateServiceRequest {
     @Temporal(TemporalType.TIMESTAMP)
     private Date initialDate;
     private Integer vehicleTypeId;
-    private String providerUser;
+    private String providerName;
+    private String providerId;
     private Character status;
     private String source;
     private String destination;
@@ -17,13 +18,16 @@ public class CreateServiceRequest {
     public CreateServiceRequest() {
     }
 
-    public CreateServiceRequest(String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, Character status) {
+    public CreateServiceRequest(String name, String description, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, Character status, String source, String destination) {
         this.name = name;
         this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
-        this.providerUser = providerUser;
+        this.providerName = providerName;
+        this.providerId = providerId;
         this.status = status;
+        this.source = source;
+        this.destination = destination;
     }
 
     public String getName() {
@@ -58,12 +62,20 @@ public class CreateServiceRequest {
         this.vehicleTypeId = vehicleTypeId;
     }
 
-    public String getProviderUser() {
-        return providerUser;
+    public String getProviderName() {
+        return providerName;
     }
 
-    public void setProviderUser(String providerUser) {
-        this.providerUser = providerUser;
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
     }
 
     public Character getStatus() {
@@ -89,5 +101,4 @@ public class CreateServiceRequest {
     public void setDestination(String destination) {
         this.destination = destination;
     }
-
 }

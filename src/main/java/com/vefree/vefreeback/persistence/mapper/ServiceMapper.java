@@ -18,7 +18,8 @@ public interface ServiceMapper {
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "initialDate", target = "initialDate"),
             @Mapping(source = "vehicleTypeId", target = "vehicleTypeId"),
-            @Mapping(source = "providerUser", target = "providerUser"),
+            @Mapping(source = "providerName", target = "providerName"),
+            @Mapping(source = "providerId", target = "providerId"),
             @Mapping(source = "status", target = "status"),
             @Mapping(source = "source", target = "source"),
             @Mapping(source = "destination", target = "destination")

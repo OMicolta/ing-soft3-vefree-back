@@ -51,7 +51,8 @@ public class ServiceRepository implements IServiceRepository {
     public Boolean acceptService(AcceptServiceRequest data) {
         Optional<Service> service = serviceCrudRepository.findById(data.getServiceId());
         if (service.get() != null) {
-            service.get().setBeneficiaryUser(data.getBeneficiaryUser());
+            service.get().setBeneficiaryName(data.getBeneficiaryName());
+            service.get().setBeneficiaryId(data.getBeneficiaryId());
             service.get().setStatus(data.getStatus());
         }
         Service serviceUpdated = serviceCrudRepository.save(service.get());

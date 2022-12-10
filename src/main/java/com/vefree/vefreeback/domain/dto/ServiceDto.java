@@ -8,9 +8,10 @@ public class ServiceDto {
     private String description;
     private Date initialDate;
     private Integer vehicleTypeId;
-    private String providerUser;
-
-    private String beneficiaryUser;
+    private String providerName;
+    private String providerId;
+    private String beneficiaryName;
+    private String beneficiaryId;
     private Character status;
 
     private String source;
@@ -22,14 +23,19 @@ public class ServiceDto {
     public ServiceDto() {
     }
 
-    public ServiceDto(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, Character status) {
+    public ServiceDto(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, String beneficiaryName, String beneficiaryId, Character status, String source, String destination) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
-        this.providerUser = providerUser;
+        this.providerName = providerName;
+        this.providerId = providerId;
+        this.beneficiaryName = beneficiaryName;
+        this.beneficiaryId = beneficiaryId;
         this.status = status;
+        this.source = source;
+        this.destination = destination;
     }
 
     public Integer getId() {
@@ -72,12 +78,20 @@ public class ServiceDto {
         this.vehicleTypeId = vehicleTypeId;
     }
 
-    public String getProviderUser() {
-        return providerUser;
+    public String getProviderName() {
+        return providerName;
     }
 
-    public void setProviderUser(String providerUser) {
-        this.providerUser = providerUser;
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    public String getBeneficiaryName() {
+        return beneficiaryName;
+    }
+
+    public void setBeneficiaryName(String beneficiaryName) {
+        this.beneficiaryName = beneficiaryName;
     }
 
     public Character getStatus() {
@@ -102,5 +116,21 @@ public class ServiceDto {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public String getBeneficiaryId() {
+        return beneficiaryId;
+    }
+
+    public void setBeneficiaryId(String beneficiaryId) {
+        this.beneficiaryId = beneficiaryId;
     }
 }

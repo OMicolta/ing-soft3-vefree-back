@@ -1,5 +1,7 @@
 package com.vefree.vefreeback.persistence.entity;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,11 +22,17 @@ public class Service {
     private Date initialDate;
     @Column(name = "vehicle_type_id")
     private Integer vehicleTypeId;
-    @Column(name = "provider_user")
-    private String providerUser;
+    @Column(name = "provider_name")
+    private String providerName;
 
-    @Column(name = "beneficiary_user")
-    private String beneficiaryUser;
+    @Column(name = "provider_id")
+    private String providerId;
+
+    @Column(name = "beneficiary_name", nullable = true)
+    private String beneficiaryName;
+
+    @Column(name = "beneficiary_id", nullable = true)
+    private String beneficiaryId;
     @Column(name = "status")
     private Character status;
 
@@ -42,15 +50,19 @@ public class Service {
     public Service() {
     }
 
-    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerUser, String beneficiaryUser, Character status) {
+    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, String beneficiaryName, String beneficiaryId, Character status, String source, String destination) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
-        this.providerUser = providerUser;
-        this.beneficiaryUser = beneficiaryUser;
+        this.providerName = providerName;
+        this.providerId = providerId;
+        this.beneficiaryName = beneficiaryName;
+        this.beneficiaryId = beneficiaryId;
         this.status = status;
+        this.source = source;
+        this.destination = destination;
     }
 
     public Integer getId() {
@@ -93,20 +105,20 @@ public class Service {
         this.vehicleTypeId = vehicleTypeId;
     }
 
-    public String getProviderUser() {
-        return providerUser;
+    public String getProviderName() {
+        return providerName;
     }
 
-    public void setProviderUser(String providerUser) {
-        this.providerUser = providerUser;
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
     }
 
-    public String getBeneficiaryUser() {
-        return beneficiaryUser;
+    public String getBeneficiaryName() {
+        return beneficiaryName;
     }
 
-    public void setBeneficiaryUser(String beneficiaryUser) {
-        this.beneficiaryUser = beneficiaryUser;
+    public void setBeneficiaryName(String beneficiaryName) {
+        this.beneficiaryName = beneficiaryName;
     }
 
     public VehicleType getVehicleType() {
@@ -139,5 +151,21 @@ public class Service {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public String getBeneficiaryId() {
+        return beneficiaryId;
+    }
+
+    public void setBeneficiaryId(String beneficiaryId) {
+        this.beneficiaryId = beneficiaryId;
     }
 }
