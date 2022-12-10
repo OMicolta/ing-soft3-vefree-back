@@ -2,6 +2,7 @@ package com.vefree.vefreeback.web.controller;
 
 import com.vefree.vefreeback.domain.dto.ServiceDto;
 import com.vefree.vefreeback.domain.dto.request.AcceptServiceRequest;
+import com.vefree.vefreeback.domain.dto.request.CancelServiceRequest;
 import com.vefree.vefreeback.domain.dto.request.CreateServiceRequest;
 import com.vefree.vefreeback.domain.service.ServiceService;
 import io.swagger.annotations.ApiOperation;
@@ -40,5 +41,12 @@ public class ServiceController {
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Boolean> acceptService(@RequestBody AcceptServiceRequest data) {
         return new ResponseEntity<>(serviceService.acceptService(data), HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/cancelService")
+    @ApiOperation("Cancel a service")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<Boolean> cancelService(@RequestBody CancelServiceRequest data) {
+        return new ResponseEntity<>(serviceService.cancelService(data), HttpStatus.CREATED);
     }
 }

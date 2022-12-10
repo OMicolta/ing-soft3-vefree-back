@@ -1,6 +1,7 @@
 package com.vefree.vefreeback.persistence;
 
 import com.vefree.vefreeback.domain.dto.ServiceDto;
+import com.vefree.vefreeback.domain.dto.request.CancelServiceRequest;
 import com.vefree.vefreeback.domain.dto.request.CreateServiceRequest;
 import com.vefree.vefreeback.domain.dto.request.AcceptServiceRequest;
 import com.vefree.vefreeback.domain.repository.IServiceRepository;
@@ -49,13 +50,31 @@ public class ServiceRepository implements IServiceRepository {
      */
     @Override
     public Boolean acceptService(AcceptServiceRequest data) {
-        Optional<Service> service = serviceCrudRepository.findById(data.getServiceId());
-        if (service.get() != null) {
-            service.get().setBeneficiaryName(data.getBeneficiaryName());
-            service.get().setBeneficiaryId(data.getBeneficiaryId());
-            service.get().setStatus(data.getStatus());
+        Service service = serviceCrudRepository.findById(data.getServiceId()).get();
+        if (service != null) {
+            service.setBeneficiaryName(data.getBeneficiaryName());
+            service.setBeneficiaryId(data.getBeneficiaryId());
+            service.setStatus(data.getStatus());
         }
-        Service serviceUpdated = serviceCrudRepository.save(service.get());
+        Service serviceUpdated = serviceCrudRepository.save(service);
+        return serviceUpdated != null;
+    }
+
+    @Override
+    public Boolean cancelService(CancelServiceRequest data) {
+        Service service = serviceCrudRepository.findById(data.getServiceId()).get();
+        if (service == null) {
+            return false;
+        }
+
+        if (data.getUserId() == service.getProviderId()) {
+            service.setStatus('R');
+        } else {
+            service.setBeneficiaryName(null);
+            service.setBeneficiaryId(null);
+            service.setStatus('I');
+        }
+        Service serviceUpdated = serviceCrudRepository.save(service);
         return serviceUpdated != null;
     }
 }

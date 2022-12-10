@@ -1,6 +1,7 @@
 package com.vefree.vefreeback.domain.repository;
 
 import com.vefree.vefreeback.domain.dto.ServiceDto;
+import com.vefree.vefreeback.domain.dto.request.CancelServiceRequest;
 import com.vefree.vefreeback.domain.dto.request.CreateServiceRequest;
 import com.vefree.vefreeback.domain.dto.request.AcceptServiceRequest;
 
@@ -10,5 +11,6 @@ public interface IServiceRepository {
     ServiceDto save(CreateServiceRequest service);
     List<ServiceDto> getAll();
 
-    Boolean acceptService(AcceptServiceRequest service);
+    Boolean acceptService(AcceptServiceRequest data);
+    Boolean cancelService(CancelServiceRequest data);
 }

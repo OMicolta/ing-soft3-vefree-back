@@ -2,6 +2,7 @@ package com.vefree.vefreeback.domain.service;
 
 import com.vefree.vefreeback.domain.dto.ServiceDto;
 import com.vefree.vefreeback.domain.dto.request.AcceptServiceRequest;
+import com.vefree.vefreeback.domain.dto.request.CancelServiceRequest;
 import com.vefree.vefreeback.domain.dto.request.CreateServiceRequest;
 import com.vefree.vefreeback.persistence.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,14 @@ public class ServiceService {
      */
     public Boolean acceptService(AcceptServiceRequest data) {
         return serviceRepository.acceptService(data);
+    }
+
+    /**
+     * Permite cancelar servicios a proveedores y beneficiarios
+     * @param data
+     * @return
+     */
+    public Boolean cancelService(CancelServiceRequest data) {
+        return serviceRepository.cancelService(data);
     }
 }
