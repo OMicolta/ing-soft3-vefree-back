@@ -35,6 +35,14 @@ public class ServiceService {
     }
 
     /**
+     * Obtiene los servicios relacionados a un usuario
+     * @return
+     */
+    public List<ServiceDto> getByUserId(String userId) {
+        return serviceRepository.getByUserId(userId);
+    }
+
+    /**
      * Actualiza la información del usuario que acepta el servicio
      * @param data
      * @return

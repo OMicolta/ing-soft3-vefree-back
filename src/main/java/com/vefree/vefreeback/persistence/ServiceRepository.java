@@ -44,6 +44,17 @@ public class ServiceRepository implements IServiceRepository {
     }
 
     /**
+     * Obtiene los servicios relacionados a un usuario
+     * @param userId Cédula del usuario
+     * @return
+     */
+    @Override
+    public List<ServiceDto> getByUserId(String userId) {
+        List<Service> services = (List<Service>) serviceCrudRepository.findByUserId(userId);
+        return mapper.toServices(services);
+    }
+
+    /**
      * Actualiza la información del usuario que acepta el servicio
      * @param data
      * @return
@@ -60,6 +71,11 @@ public class ServiceRepository implements IServiceRepository {
         return serviceUpdated != null;
     }
 
+    /**
+     * Perimite cancelar un servico tanto al proveedor como al beneficiario
+     * @param data
+     * @return
+     */
     @Override
     public Boolean cancelService(CancelServiceRequest data) {
         Service service = serviceCrudRepository.findById(data.getServiceId()).get();

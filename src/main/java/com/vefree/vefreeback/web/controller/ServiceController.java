@@ -32,7 +32,14 @@ public class ServiceController {
     @ApiOperation("Get all services")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<List<ServiceDto>> getAll() {
-        return new ResponseEntity<>(serviceService.getAll(), HttpStatus.CREATED);
+        return new ResponseEntity<>(serviceService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/getByUserId")
+    @ApiOperation("Get all services by user")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<List<ServiceDto>> getByUserId(@RequestParam String userId) {
+        return new ResponseEntity<>(serviceService.getByUserId(userId), HttpStatus.OK);
     }
 
 
@@ -40,13 +47,13 @@ public class ServiceController {
     @ApiOperation("Accept a service")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Boolean> acceptService(@RequestBody AcceptServiceRequest data) {
-        return new ResponseEntity<>(serviceService.acceptService(data), HttpStatus.CREATED);
+        return new ResponseEntity<>(serviceService.acceptService(data), HttpStatus.OK);
     }
 
     @PatchMapping("/cancelService")
     @ApiOperation("Cancel a service")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Boolean> cancelService(@RequestBody CancelServiceRequest data) {
-        return new ResponseEntity<>(serviceService.cancelService(data), HttpStatus.CREATED);
+        return new ResponseEntity<>(serviceService.cancelService(data), HttpStatus.OK);
     }
 }

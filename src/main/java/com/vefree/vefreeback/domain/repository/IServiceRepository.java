@@ -10,7 +10,7 @@ import java.util.List;
 public interface IServiceRepository {
     ServiceDto save(CreateServiceRequest service);
     List<ServiceDto> getAll();
-
+    List<ServiceDto> getByUserId(String userId);
     Boolean acceptService(AcceptServiceRequest data);
     Boolean cancelService(CancelServiceRequest data);
 }
