@@ -65,7 +65,7 @@ public class ServiceRepository implements IServiceRepository {
         if (service != null) {
             service.setBeneficiaryName(data.getBeneficiaryName());
             service.setBeneficiaryId(data.getBeneficiaryId());
-            service.setStatus(data.getStatus());
+            service.setStatus('A');
         }
         Service serviceUpdated = serviceCrudRepository.save(service);
         return serviceUpdated != null;
@@ -83,7 +83,7 @@ public class ServiceRepository implements IServiceRepository {
             return false;
         }
 
-        if (data.getUserId() == service.getProviderId()) {
+        if (data.getUserId().equals(service.getProviderId())) {
             service.setStatus('R');
         } else {
             service.setBeneficiaryName(null);

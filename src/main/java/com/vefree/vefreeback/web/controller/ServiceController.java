@@ -43,7 +43,7 @@ public class ServiceController {
     }
 
 
-    @PatchMapping("/acceptService")
+    @PostMapping("/acceptService")
     @ApiOperation("Accept a service")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Boolean> acceptService(@RequestBody AcceptServiceRequest data) {
