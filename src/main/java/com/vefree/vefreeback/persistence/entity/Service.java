@@ -1,7 +1,5 @@
 package com.vefree.vefreeback.persistence.entity;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -50,17 +48,12 @@ public class Service {
     public Service() {
     }
 
-    public Service(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, String beneficiaryName, String beneficiaryId, Character status, String source, String destination) {
-        this.id = id;
+    public Service(String name, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, String source, String destination) {
         this.name = name;
-        this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
         this.providerName = providerName;
         this.providerId = providerId;
-        this.beneficiaryName = beneficiaryName;
-        this.beneficiaryId = beneficiaryId;
-        this.status = status;
         this.source = source;
         this.destination = destination;
     }

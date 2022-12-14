@@ -23,17 +23,12 @@ public class ServiceDto {
     public ServiceDto() {
     }
 
-    public ServiceDto(Integer id, String name, String description, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, String beneficiaryName, String beneficiaryId, Character status, String source, String destination) {
-        this.id = id;
+    public ServiceDto(String name, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, String source, String destination) {
         this.name = name;
-        this.description = description;
         this.initialDate = initialDate;
         this.vehicleTypeId = vehicleTypeId;
         this.providerName = providerName;
         this.providerId = providerId;
-        this.beneficiaryName = beneficiaryName;
-        this.beneficiaryId = beneficiaryId;
-        this.status = status;
         this.source = source;
         this.destination = destination;
     }

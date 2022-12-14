@@ -15,21 +15,6 @@ public class CreateServiceRequest {
     private String source;
     private String destination;
 
-    public CreateServiceRequest() {
-    }
-
-    public CreateServiceRequest(String name, String description, Date initialDate, Integer vehicleTypeId, String providerName, String providerId, Character status, String source, String destination) {
-        this.name = name;
-        this.description = description;
-        this.initialDate = initialDate;
-        this.vehicleTypeId = vehicleTypeId;
-        this.providerName = providerName;
-        this.providerId = providerId;
-        this.status = status;
-        this.source = source;
-        this.destination = destination;
-    }
-
     public String getName() {
         return name;
     }
