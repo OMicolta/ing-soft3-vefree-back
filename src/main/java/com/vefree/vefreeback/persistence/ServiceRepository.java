@@ -39,7 +39,7 @@ public class ServiceRepository implements IServiceRepository {
      */
     @Override
     public List<ServiceDto> getAll() {
-        List<Service> services = (List<Service>) serviceCrudRepository.findAll();
+        List<Service> services = (List<Service>) serviceCrudRepository.findAll('D');
         return mapper.toServices(services);
     }
 
@@ -84,11 +84,11 @@ public class ServiceRepository implements IServiceRepository {
         }
 
         if (data.getUserId().equals(service.getProviderId())) {
-            service.setStatus('R');
+            service.setStatus('C');
         } else {
             service.setBeneficiaryName(null);
             service.setBeneficiaryId(null);
-            service.setStatus('I');
+            service.setStatus('D');
         }
         Service serviceUpdated = serviceCrudRepository.save(service);
         return serviceUpdated != null;
