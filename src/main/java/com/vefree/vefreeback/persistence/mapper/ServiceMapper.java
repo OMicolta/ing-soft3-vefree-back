@@ -22,7 +22,9 @@ public interface ServiceMapper {
             @Mapping(source = "providerId", target = "providerId"),
             @Mapping(source = "status", target = "status"),
             @Mapping(source = "source", target = "source"),
-            @Mapping(source = "destination", target = "destination")
+            @Mapping(source = "destination", target = "destination"),
+            @Mapping(source = "beneficiaryName", target = "beneficiaryName"),
+            @Mapping(source = "beneficiaryId", target = "beneficiaryId")
     })
     ServiceDto toServiceDto(Service service);
     List<ServiceDto> toServices(List<Service> services);

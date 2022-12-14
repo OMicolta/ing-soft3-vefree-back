@@ -12,6 +12,6 @@ public interface ServiceCrudRepository extends CrudRepository<Service, Integer> 
 
     @Query("select s from Service s where s.status = :status")
     public List<Service> findAll(Character status);
-    @Query("select s from Service s where s.providerId = :userId or s.beneficiaryId = :userId")
+    @Query("select s from Service s where (s.providerId = :userId or s.beneficiaryId = :userId) and s.status <> 'C'")
     public List<Service> findByUserId(String userId);
 }

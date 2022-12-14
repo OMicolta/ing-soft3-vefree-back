@@ -11,7 +11,6 @@ public class CreateServiceRequest {
     private Integer vehicleTypeId;
     private String providerName;
     private String providerId;
-    private Character status;
     private String source;
     private String destination;
 
@@ -61,14 +60,6 @@ public class CreateServiceRequest {
 
     public void setProviderId(String providerId) {
         this.providerId = providerId;
-    }
-
-    public Character getStatus() {
-        return status;
-    }
-
-    public void setStatus(Character status) {
-        this.status = status;
     }
 
     public String getSource() {
